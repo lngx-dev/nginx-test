@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+
+files:
+  - source: ./src
+    destination: /mnt/nginx/src
+  - source: ./Dockerfile
+    destination: /mnt/nginx/docker
+#  - source: ./build
+#    destination: /mnt/nginx
+#  - source: ./run
+#    destination: /mnt/nginx
+
+hooks:
+  ApplicationStart:
+    - location: appspec_scripts/start_server.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: appspec_scripts/stop_server.sh
+      timeout: 30
+      runas: root
+  ValidateService:
+    - location: appspec_scripts/status_server.sh
+      timeout: 30
+      runas: root
