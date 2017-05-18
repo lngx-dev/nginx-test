@@ -2,10 +2,10 @@ version: 0.0
 os: linux
 
 files:
-  - source: ./src
-    destination: /mnt/nginx/src
   - source: ./Dockerfile
     destination: /mnt/nginx/docker
+  - source: ./src
+    destination: /mnt/nginx/docker/src
 #  - source: ./build
 #    destination: /mnt/nginx
 #  - source: ./run

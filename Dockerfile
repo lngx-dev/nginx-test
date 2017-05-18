@@ -8,10 +8,10 @@ RUN yum -y update && \
   yum -y clean all
 
 # Deploy config
-COPY /mnt/nginx/src/nginx.conf  /etc/nginx/
+COPY ./src/nginx.conf  /etc/nginx/
 
 # Open port
-EXPOSE 80
+EXPOSE 80 8000 8001
 
 # Start nginx
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
